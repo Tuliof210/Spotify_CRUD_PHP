@@ -68,7 +68,7 @@ function Filtrar(texto) {
 var template = function(id, nome, banda, genero) {
 
     var html = `
-        <div class="` + genero + ` card text-white bg-dark mb-3 ` + banda + `" style="max-width: 18rem;">
+        <div class="` + genero + ` card text-white bg-dark mb-3 ` + banda + ` col-md-6" style="max-width: 18rem;">
             <div class="card-header">
                 <strong class="titulo-banda">` + banda + `</strong>
                 <button type="button" onClick="deletar(this, ` + id + `);" class="d-flex align-self-center ml-auto btn btn-danger btncard"><strong>Excluir</strong></button>
