@@ -1,0 +1,51 @@
+body {
+    max-width: 1080px;
+    margin: auto;
+    background-color: #e4e4e4;
+}
+
+#listagem {
+    box-sizing: border-box;
+}
+
+.card {
+    width: 300px;
+    margin: 7px;
+}
+
+.card-body {
+    text-shadow: 2px 2px 5px grey;
+}
+
+.btn {
+    margin-top: 0;
+}
+
+.logo {
+    padding: 20px;
+}
+
+.logo img {
+    max-width: 40%;
+}
+
+.entradas {
+    background-color: black;
+    padding: 20px;
+    margin: 10px 0 40px 0;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btncard {
+    margin-right: 1px;
+}
+
+.filtro {
+    float: right;
+}
+
+.titulo-banda {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+}

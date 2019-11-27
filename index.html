@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="2752Spotify-line-transparent-512.ico">
+    <title>Meu Spotify</title>
+</head>
+
+<body>
+
+    <header class="entradas">
+        <div class="logo">
+            <img src="https://1.bp.blogspot.com/-xtFG2HxsdKc/XHkuICL5ePI/AAAAAAAAIPs/-FBy2Apa3qUxBF1WNOzB_dF4_KUuLJrygCK4BGAYYCw/s640/spotify%2Bicon%2B.png" alt="Spotify">
+        </div>
+
+        <!-- Botão para acionar modal musica-->
+        <button type="button" class="btn btn-success btn" data-toggle="modal" data-target="#ModalMusic"><strong>Adicionar Musica</strong></button>
+        <button type="button" class="btn btn-secondary btn" data-toggle="modal" data-target="#ModalBanda"><strong>Atualizar Lista de Bandas</strong></button>
+        <button type="button" class="btn btn-secondary btn" data-toggle="modal" data-target="#ModalGenero"><strong>Atualizar Lista de Generos</strong></button>
+        <div class="btn-group filtro">
+            <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <strong id="rotulo">Filtro</strong>
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" onclick="Filtrar('Todos');" href="#">Todos</a>
+                <div class="dropdown-divider"></div>
+                <div id="dropdown-genero">
+
+                </div>
+                <div class="dropdown-divider"></div>
+                <div id="dropdown-banda">
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Modal musica-->
+        <div class="modal fade" id="ModalMusic" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Informe os dados da Musica</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Titulo da Musica</label>
+                                <input type="email" class="form-control" id="entradaMusica">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Selecione a Banda</label>
+                                <select class="form-control" id="entradaBanda">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Selecione o Genero</label>
+                                <select class="form-control" id="entradaGenero">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-dark" onclick="EnviarMusica();">Adicionar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="ModalBanda" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Informe os dados da Banda</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Nome da Banda</label>
+                                <input type="text" class="form-control" id="entradaMusica">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-dark" onclick="EnviarBanda();">Adicionar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="ModalGenero" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Informe os dados do Genero</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Tipo de Genero</label>
+                                <input type="text" class="form-control" id="entradaMusica">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-dark" onclick="EnviarGenero();">Adicionar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="listagem" class="row">
+        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+            <div class="card-header">
+                <strong>Disturbed</strong>
+                <button type="button" class="btn btn-danger btncard">Excluir</button>
+            </div>
+            <div class="card-body bg-success">
+                <h5 class="card-title"><strong>The Vengeful One</strong></h5>
+            </div>
+            <div class="card-header">
+                <h5 class="card-title">Rock</h5>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="actions.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+CREATE TABLE `tb_banda` (
+`id_banda` int(11) NOT NULL AUTO_INCREMENT,
+`nome_banda` varchar(30) NOT NULL DEFAULT '',
+PRIMARY KEY (`id_banda`)
+) ENGINE=InnoDB CHARSET=utf8;
+
+CREATE TABLE `tb_genero` (
+`id_genero` int(11) NOT NULL AUTO_INCREMENT,
+`nome_genero` varchar(30) NOT NULL DEFAULT '',
+PRIMARY KEY (`id_genero`)
+) ENGINE=InnoDB CHARSET=utf8;
+
+CREATE TABLE `tb_music` (
+`id_music` int(11) NOT NULL AUTO_INCREMENT,
+`nome_music` varchar(30) NOT NULL DEFAULT '',
+`id_banda` int(11),
+`id_genero` int(11),
+PRIMARY KEY (`id_music`),
+CONSTRAINT `fk_banda` FOREIGN KEY (`id_banda`) REFERENCES `tb_banda`(`id_banda`),
+CONSTRAINT `fk_genero` FOREIGN KEY(`id_genero`) REFERENCES `tb_genero`(`id_genero`)
+) ENGINE=InnoDB CHARSET=utf8;
+
+
+INSERT INTO `tb_genero`(`nome_genero`) VALUES ("Rock");
+INSERT INTO `tb_banda`(`nome_banda`) VALUES ("Disturbed");
+INSERT INTO `tb_music`(`nome_music`, `id_banda`, `id_genero`) VALUES ("The Vengeful One", 1, 1);
+
+INSERT INTO `tb_genero`(`nome_genero`) VALUES ("Rap");
+INSERT INTO `tb_banda`(`nome_banda`) VALUES ("Eminem");
+INSERT INTO `tb_music`(`nome_music`, `id_banda`, `id_genero`) VALUES ("Rap God", 2, 2);
+
+SELECT tb_music.id_music, tb_music.nome_music, tb_banda.nome_banda, tb_genero.nome_genero FROM tb_music
+INNER JOIN tb_banda ON tb_music.id_banda = tb_banda.id_banda
+INNER JOIN tb_genero ON tb_music.id_genero = tb_genero.id_genero;
+
