@@ -19,7 +19,7 @@
         </div>
 
         <!-- Botão para acionar modal musica-->
-        <button type="button" class="btn btn-success btn" data-toggle="modal" data-target="#ModalMusic"><strong>Adicionar Musica</strong></button>
+        <button type="button" onclick="Atualizar();" class="btn btn-success btn" data-toggle="modal" data-target="#ModalMusic"><strong>Adicionar Musica</strong></button>
         <button type="button" class="btn btn-secondary btn" data-toggle="modal" data-target="#ModalBanda"><strong>Atualizar Lista de Bandas</strong></button>
         <button type="button" class="btn btn-secondary btn" data-toggle="modal" data-target="#ModalGenero"><strong>Atualizar Lista de Generos</strong></button>
         <div class="btn-group filtro">
@@ -29,13 +29,9 @@
             <div class="dropdown-menu">
                 <a class="dropdown-item" onclick="Filtrar('Todos');" href="#">Todos</a>
                 <div class="dropdown-divider"></div>
-                <div id="dropdown-genero">
-
-                </div>
+                <div id="dropdown-genero"></div>
                 <div class="dropdown-divider"></div>
-                <div id="dropdown-banda">
-
-                </div>
+                <div id="dropdown-banda"></div>
             </div>
         </div>
 
@@ -59,29 +55,17 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Selecione a Banda</label>
-                                <select class="form-control" id="entradaBanda">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
+                                <select class="form-control" id="SelectBanda"></select>
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Selecione o Genero</label>
-                                <select class="form-control" id="entradaGenero">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
+                                <select class="form-control" id="SelectGenero"></select>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                        <button type="button" class="btn btn-dark" onclick="EnviarMusica();">Adicionar</button>
+                        <button type="button" class="btn btn-dark" data-dismiss="modal" onclick="EnviarMusica();">Adicionar</button>
                     </div>
                 </div>
             </div>
@@ -100,13 +84,13 @@
                         <form>
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Nome da Banda</label>
-                                <input type="text" class="form-control" id="entradaMusica">
+                                <input type="text" class="form-control" id="entradaBanda">
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                        <button type="button" class="btn btn-dark" onclick="EnviarBanda();">Adicionar</button>
+                        <button type="button" class="btn btn-dark" data-dismiss="modal" onclick="EnviarBanda();">Adicionar</button>
                     </div>
                 </div>
             </div>
@@ -125,33 +109,20 @@
                         <form>
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Tipo de Genero</label>
-                                <input type="text" class="form-control" id="entradaMusica">
+                                <input type="text" class="form-control" id="entradaGenero">
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                        <button type="button" class="btn btn-dark" onclick="EnviarGenero();">Adicionar</button>
+                        <button type="button" class="btn btn-dark" data-dismiss="modal" onclick="EnviarGenero();">Adicionar</button>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <div id="listagem" class="row mx-auto">
-        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-            <div class="card-header">
-                <strong>Disturbed</strong>
-                <button type="button" class="btn btn-danger btncard">Excluir</button>
-            </div>
-            <div class="card-body bg-success">
-                <h5 class="card-title"><strong>The Vengeful One</strong></h5>
-            </div>
-            <div class="card-header">
-                <h5 class="card-title">Rock</h5>
-            </div>
-        </div>
-    </div>
+    <div id="listagem" class="row mx-auto"></div>
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
