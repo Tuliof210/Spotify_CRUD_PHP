@@ -1,6 +1,6 @@
 # SPOTIFY | CRUD Php
 
-Recomendações para utilização:
+###Recomendações para utilização:
 
 - Instalar o xampp e colocar a pasta com os arquivos dentro da pasta 'C:\xampp\htdocs'
 - Criar um banco de dados chamado 'spotify' (no codigo em questao foi utilizado o php myadmin para criação do banco)
